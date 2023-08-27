@@ -13,6 +13,9 @@ public record DoctorRecord(
         String name,
         @Email
         String email,
+        @NotBlank
+        @Pattern(regexp = "\\d{8,14}")
+        String phoneNumber,
         @Pattern(regexp = "\\d{4,6}")
         String crm,
         @NotNull
@@ -25,6 +28,7 @@ public record DoctorRecord(
 
         entity.setName(this.name);
         entity.setEmail(this.email);
+        entity.setPhoneNumber(this.phoneNumber);
         entity.setCrm(this.crm);
         entity.setSpecialty(this.specialty);
         entity.setAddress(this.address().toEntity());
